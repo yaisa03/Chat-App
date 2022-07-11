@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom right, rgb(163, 86, 173), white);
+}
+
+#joinChatContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 70%;
+}
+
+#joinChatContainer button {
+    height: 25px;
+    border-radius: 10px;
+    padding-left: 5px;
+    width: 70%;
+    align-self: center;
+}
+
+#joinChatContainer form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border: 2px solid;
+    border-radius: 5px;
+    width: 350px;
+}
+
+#joinChatContainer form input {
+    margin-bottom: 10px;
+    height: 30px;
+    border-radius: 10px;
+    padding-left: 5px;
+    width: 80%
+}
+
+@media (min-width: 600px) {
+    #joinChatContainer {
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+    #joinChatContainer form {
+        width: 40%;
+        text-align: center;
+        align-items: center;
+    }
+
+    #joinChatContainer form input {
+        width: 80%;
+    }
+}
+
+@media (min-width: 850px) {
+    #joinChatContainer form input {
+        width: 60%;
+    }
+}
+
+#chatContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+}
+
+#chatId {
+    width: 100%;
+    background-color: rgb(163, 86, 173);
+    padding: 15px 0;
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+
+#messageContainer {
+    width: 95%;
+}
+
+#sendContainer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0.25rem;
+    box-sizing: border-box;
+    display: flex;
+    height: 3rem;
+    width: 100%;
+    background-color: rgb(163, 86, 173);
+}
+
+#messageInput {
+    width: 80%
+}
+
+#sendButton {
+    width: 20%;
+}
+
+#you {
+    background-color: rgb(110, 76, 114);
+    color: white;
+    text-align: right;
+    font-style: italic;
+    font-size: 18px;
+    padding-right: 2px;
+}
+
+#other {
+    border: 2px solid  rgb(110, 76, 114);
+}
+
+#you p,
+#other p {
+    margin: 0;
+    font-size: 25px;
+}
+
+#time {
+    font-size: 15px !important;
+    font-style: normal;
+    margin: 0;
+}
