@@ -25,7 +25,7 @@ io.on('connection', (socket) => {
         console.log(`user with id: ${socket.id} joined room ${room}`)
     })
 
-    let createdRoom = uuid();
+    let createdRoom = uuid().slice(0,-13);
     socket.emit('create-room', createdRoom);
 
     socket.on('send-message', (message) => {

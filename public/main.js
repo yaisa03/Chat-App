@@ -17,7 +17,7 @@ joinRoomBtn.addEventListener("click", (e) => {
         currentUsername = nameInput.value;
         currentRoom = joinRoomInput.value;
         socket.emit("join-room", currentRoom);
-        document.getElementById('chatId').innerHTML = `Chat ID ${currentRoom}`;
+        document.getElementById('chatId').innerHTML = `Chat ID: ${currentRoom}`;
     }
 });
 
@@ -81,7 +81,7 @@ socket.on('receive-message', (msg) => {
     newMsgDiv.setAttribute('id', msg.userID === currentUser ? "you" : "other");
 
     let msgTime = document.createElement('p');
-    msgTime.innerHTML = msg.time, msg.author;
+    msgTime.innerHTML = msg.author + ' '+ msg.time;
     msgTime.setAttribute('id', 'time');
 
     let newMsg = document.createElement('p');
