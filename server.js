@@ -20,9 +20,9 @@ io.on('connection', (socket) => {
 
     socket.emit('current-user', socket.id);
 
-    socket.on('join-room', (room) => {
-        socket.join(room);
-        console.log(`user with id: ${socket.id} joined room ${room}`)
+    socket.on('join-room', (data) => {
+        socket.join(data.currentRoom);
+        console.log(`user with id: ${socket.id} and username: ${data.currentUsername} joined room ${data.currentRoom}`);
     })
 
     let createdRoom = uuid().slice(0,-13);
@@ -32,11 +32,15 @@ io.on('connection', (socket) => {
         socket.to(message.room).emit('receive-message', { ...message, userId: socket.id });/* {message:message, userId:socket.id} */
     })
 
+    /* socket.on('typing', (data) => {
+        socket.to(data.room).emit('typing', data.userTyping);
+    }) */
+
     socket.on('disconect', () => {
         console.log('a user disconnected', socket.id);
     })
 });
 
-server.listen(3000, () => {
+server.listen(process.env.PORT || 3000, () => {
     console.log('listening on *:3000');
 });
